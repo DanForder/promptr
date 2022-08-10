@@ -2,14 +2,16 @@ import { useRouter } from "next/router";
 import EnterForm from "../components/EnterForm";
 import { registerUser } from "../lib/firebase";
 
+const inputArray = [
+  { name: "Display Name", type: "text" },
+  { name: "Email", type: "email" },
+  { name: "Password", type: "Password" },
+];
+
 const SignUp = () => {
   const router = useRouter();
 
-  const inputArray = [
-    { name: "Display Name", type: "text" },
-    { name: "Email", type: "email" },
-    { name: "Password", type: "Password" },
-  ];
+  const [error, setError] = useState("");
 
   const onSubmit = async (form) => {
     const res = await registerUser(
@@ -21,6 +23,8 @@ const SignUp = () => {
     if (res) {
       router.push("/");
     }
+
+    setError(result.error);
   };
 
   return (
@@ -31,6 +35,7 @@ const SignUp = () => {
       altLinkText="Sign in"
       heading="Create Account"
       submitText="Sign up"
+      error={error}
     />
   );
 };

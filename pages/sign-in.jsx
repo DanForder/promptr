@@ -1,21 +1,24 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import EnterForm from "../components/EnterForm";
 import { signInUser } from "../lib/firebase";
+
+const inputArray = [
+  { name: "Email", type: "email" },
+  { name: "Password", type: "Password" },
+];
 
 const SignIn = () => {
   const router = useRouter();
 
-  const inputArray = [
-    { name: "Email", type: "email" },
-    { name: "Password", type: "Password" },
-  ];
+  const [error, setError] = useState("");
 
   const onSubmit = async (form) => {
-    const res = await signInUser(form["Email"], form["Password"]);
+    const result = await signInUser(form["Email"], form["Password"]);
 
-    if (res?.user?.uid) {
-      router.push("/");
-    }
+    if (result.isSuccess) return router.push("/");
+
+    setError(result.error);
   };
 
   return (
@@ -26,6 +29,7 @@ const SignIn = () => {
       altLinkText="Sign up"
       heading="Welcome Back"
       submitText="Sign in"
+      error={error}
     />
   );
 };

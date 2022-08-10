@@ -10,6 +10,7 @@ const EnterForm = ({
   altLinkText,
   submitText,
   heading,
+  error,
 }) => {
   const initialState = {};
   inputArray.forEach(({ name }) => {
@@ -38,6 +39,9 @@ const EnterForm = ({
   return (
     <div className={styles.wrapper}>
       <h1 className={styles.heading}>{heading}</h1>
+      {error && (
+        <p className={["text-danger", styles.error].join(" ")}>{error}</p>
+      )}
       <form onSubmit={handleSubmit} className={styles.form}>
         {inputArray.map(({ name, type }) => (
           <input
