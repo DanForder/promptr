@@ -1,39 +1,32 @@
-import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
-import styles from "../styles/enter.module.scss";
+import { useRouter } from "next/router";
+import EnterForm from "../components/EnterForm";
+import { signInUser } from "../lib/firebase";
 
 const SignIn = () => {
-  const onSubmit = (e) => {
-    e.preventDefault();
+  const router = useRouter();
+
+  const inputArray = [
+    { name: "Email", type: "email" },
+    { name: "Password", type: "Password" },
+  ];
+
+  const onSubmit = async (form) => {
+    const res = await signInUser(form["Email"], form["Password"]);
+
+    if (res?.user?.uid) {
+      router.push("/");
+    }
   };
 
   return (
-    <div className={styles.wrapper}>
-      <h1 className={styles.heading}>Welcome Back</h1>
-      <form onSubmit={onSubmit} className={styles.form}>
-        <input
-          className={styles.input}
-          type="email"
-          aria-label="Enter Email Address"
-          placeholder="Email"
-        />
-        <input
-          className={styles.input}
-          type="password"
-          aria-label="Enter Password"
-          placeholder="Password"
-        />
-        <div className={styles.actionButton}>
-          <span>Sign up</span>
-          <button aria-label="sign up">
-            <BsArrowRight />
-          </button>
-        </div>
-      </form>
-      <Link href="/sign-up">
-        <a className={styles.link}>Sign up</a>
-      </Link>
-    </div>
+    <EnterForm
+      onSubmit={onSubmit}
+      inputArray={inputArray}
+      altLink="/sign-up"
+      altLinkText="Sign up"
+      heading="Welcome Back"
+      submitText="Sign in"
+    />
   );
 };
 
