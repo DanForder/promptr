@@ -1,26 +1,39 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&family=Roboto&family=Roboto+Slab&display=swap");
 
-a {
-  color: inherit;
-  text-decoration: none;
+:root {
+  --color-1: #e2ded3;
+  --color-2: #ccc7b7;
+  --color-3: #12151b;
+  --color-4: #1e8ed5;
+  --color-5: #54595d;
+  --color-6: #e27128;
+  --color-7: #63abc8;
 }
 
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  color: var(--color-1);
+  /* font-family: "Roboto Slab", serif; */
+  /* font-family: "Roboto", sans-serif; */
+  /* font-family: "Indie Flower", sans-serif; */
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+body {
+  background-color: var(--color-3);
+}
+
+input::placeholder {
+  color: var(--color-1);
+}
+
+/* h1 {
+  font-family: "Indie Flower", sans-serif;
+} */
+
+a {
+  color: inherit;
+  text-decoration: none;
 }
