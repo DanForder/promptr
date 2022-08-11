@@ -3,11 +3,7 @@ import ReactTextareaAutosize from "react-textarea-autosize";
 import { UserContext } from "../lib/context";
 import styles from "../styles/promptCard.module.scss";
 
-const PromptCard = ({
-  backgroundColor,
-  editable = false,
-  dateSubmitted = new Date().toLocaleString(),
-}) => {
+const PromptCard = ({ backgroundColor, editable = false, dateSubmitted }) => {
   const { displayName } = useContext(UserContext);
 
   return (
