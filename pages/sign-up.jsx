@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import { useState } from "react";
 import EnterForm from "../components/EnterForm";
+import Layout from "../components/Layout";
 import { registerUser } from "../lib/firebase";
 
 const inputArray = [
@@ -29,15 +30,17 @@ const SignUp = () => {
   };
 
   return (
-    <EnterForm
-      onSubmit={onSubmit}
-      inputArray={inputArray}
-      altLink="/sign-in"
-      altLinkText="Sign in"
-      heading="Create Account"
-      submitText="Sign up"
-      error={error}
-    />
+    <Layout>
+      <EnterForm
+        onSubmit={onSubmit}
+        inputArray={inputArray}
+        altLink="/sign-in"
+        altLinkText="Sign in"
+        heading="Create Account"
+        submitText="Sign up"
+        error={error}
+      />
+    </Layout>
   );
 };
 

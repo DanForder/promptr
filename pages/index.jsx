@@ -1,9 +1,10 @@
 import AuthCheck from "../components/AuthCheck";
+import Layout from "../components/Layout";
 
 export default function Home() {
   return (
-    <AuthCheck>
+    <Layout requiresAuth showNavbar>
       <h1>Promptology</h1>
-    </AuthCheck>
+    </Layout>
   );
 }

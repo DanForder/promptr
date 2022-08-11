@@ -4,10 +4,10 @@ import { UserContext } from "../lib/context";
 
 // component's children only shown to logged-in users
 const AuthCheck = ({ fallback, children }) => {
-  const { user, displayName } = useContext(UserContext);
+  const { displayName } = useContext(UserContext);
 
   // if the user is logged in, show children components
-  if (user?.uid && displayName) {
+  if (displayName) {
     return children;
   }
 
