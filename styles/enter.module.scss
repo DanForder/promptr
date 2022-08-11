@@ -1,60 +1,64 @@
-.heading {
-  margin-bottom: auto;
-  font-family: "Indie Flower", sans-serif;
-  font-size: 2.5rem;
-}
-
 .wrapper {
+  height: 100%;
+  padding: 1.5rem 0.5rem;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: 100vh;
-  padding: 3.5rem 1.5rem;
-}
 
-.form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.error {
-  margin-bottom: 0.75rem;
-}
-
-.input {
-  border: none;
-  background-color: transparent;
-  border-bottom: var(--color-1) 1px solid;
-  font-size: 1rem;
-  padding: 1rem 0.5rem;
-  margin-bottom: 2rem;
-}
-
-.actionButton {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2rem;
-
-  span {
-    font-size: 1.5rem;
-  }
-
-  button {
-    padding: 1.5rem;
-    font-size: 2rem;
-    border-radius: 100%;
-    background-color: var(--color-4);
-    border: none;
+  .heading {
+    font-size: 2.5rem;
+    flex: 1;
     display: flex;
-    justify-content: center;
     align-items: center;
   }
-}
 
-.link {
-  text-decoration: underline;
-  margin-top: 6rem;
-  width: max-content;
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .error {
+    margin-bottom: 0.75rem;
+  }
+
+  .input {
+    border: none;
+    background-color: transparent;
+    border-bottom: var(--color-1) 1px solid;
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .actionButton {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+
+    span {
+      font-size: 1.5rem;
+    }
+
+    button {
+      padding: 1.5rem;
+      font-size: 2rem;
+      border-radius: 100%;
+      background-color: var(--color-4);
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .link {
+    text-decoration: underline;
+    width: max-content;
+    flex: 1;
+    display: flex;
+    align-items: flex-end;
+    max-height: 7rem;
+  }
 }

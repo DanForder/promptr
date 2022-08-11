@@ -16,15 +16,13 @@ const SignUp = () => {
   const [error, setError] = useState("");
 
   const onSubmit = async (form) => {
-    const res = await registerUser(
+    const result = await registerUser(
       form["Display Name"],
       form["Email"],
       form["Password"]
     );
 
-    if (res) {
-      router.push("/");
-    }
+    if (result.isSuccess) return router.push("/");
 
     setError(result.error);
   };

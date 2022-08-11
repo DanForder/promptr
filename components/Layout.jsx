@@ -6,7 +6,7 @@ const Layout = ({ showNavbar = false, requiresAuth = false, children }) => {
   const layoutJsx = (
     <>
       {showNavbar && <Navbar />}
-      <main>{children}</main>
+      {children}
     </>
   );
 

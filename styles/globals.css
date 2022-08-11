@@ -18,7 +18,10 @@
   color: var(--color-1);
   /* font-family: "Roboto Slab", serif; */
   /* font-family: "Roboto", sans-serif; */
-  /* font-family: "Indie Flower", sans-serif; */
+}
+
+h1 {
+  font-family: "Indie Flower", sans-serif;
 }
 
 body {
