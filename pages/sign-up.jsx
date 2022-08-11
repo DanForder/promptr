@@ -1,4 +1,5 @@
 import { useRouter } from "next/router";
+import { useState } from "react";
 import EnterForm from "../components/EnterForm";
 import { registerUser } from "../lib/firebase";
 

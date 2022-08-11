@@ -22,8 +22,6 @@ const EnterForm = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(form);
-
     let isValid = true;
     inputArray.forEach(({ name }) => {
       if (!form[name]) {
@@ -32,7 +30,7 @@ const EnterForm = ({
       }
     });
 
-    if (!isValid) return console.log("form has empty fields");
+    if (!isValid) return;
     onSubmit(form);
   };
 
