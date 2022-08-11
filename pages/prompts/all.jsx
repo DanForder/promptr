@@ -2,26 +2,18 @@ import { collectionGroup, query } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import Layout from "../../components/Layout";
 import PromptCard from "../../components/PromptCard";
-import { firestore } from "../../lib/firebase";
-
-// convert firestore doc to JSON (firestore timestamps different to js timestamp)
-export const postToJSON = (doc) => {
-  const data = doc.data();
-  return {
-    ...data,
-    timestamp: data.timestamp.toMillis(),
-  };
-};
+import { firestore, promptToJSON } from "../../lib/firebase";
 
 const AllPrompts = ({}) => {
-  const q = query(collectionGroup(firestore, "prompts"));
-  const [querySnapshot] = useCollection(q);
+  const [querySnapshot] = useCollection(
+    query(collectionGroup(firestore, "prompts"))
+  );
 
-  const prompts = querySnapshot?.docs.map(postToJSON);
+  const prompts = querySnapshot?.docs.map(promptToJSON);
 
-  console.log(prompts);
   return (
     <Layout requiresAuth showNavbar>
+      <h1>View all prompts</h1>
       {prompts?.map(({ backgroundColor, text, timestamp, submittedBy }) => {
         return (
           <PromptCard
