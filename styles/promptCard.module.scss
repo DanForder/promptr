@@ -1,0 +1,28 @@
+.wrapper {
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+
+  .input {
+    background: transparent;
+    border: none;
+    width: 100%;
+    min-height: 5rem;
+    font-size: 2.5rem;
+    resize: none;
+    color: white;
+    font-family: "Indie Flower", sans-serif;
+    text-align: center;
+
+    &::placeholder {
+      color: var(--color-1);
+      opacity: 0.5;
+    }
+  }
+
+  .submittedText {
+    padding-top: 1rem;
+    color: white;
+    display: inline-block;
+    text-align: center;
+  }
+}
