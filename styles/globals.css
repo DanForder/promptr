@@ -10,6 +10,16 @@
   --color-7: #63abc8;
 }
 
+/* fix safari/ chrome mobile 100vh issue */
+body,
+html {
+  height: -webkit-fill-available;
+}
+
+#__next {
+  height: 100%;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
