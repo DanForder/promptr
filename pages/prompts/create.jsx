@@ -1,8 +1,14 @@
-import { useState } from "react";
+import { useRouter } from "next/router";
+import { useContext, useState } from "react";
 import { CirclePicker } from "react-color";
+import { BsArrowRight } from "react-icons/bs";
+import ActionButton from "../../components/ActionButton";
 import Layout from "../../components/Layout";
 import PromptCard from "../../components/PromptCard";
+import { UserContext } from "../../lib/context";
+import { createPrompt } from "../../lib/firebase";
 import { getRandomIntInBounds } from "../../lib/utils";
+import styles from "../../styles/promptCreate.module.scss";
 
 const colors = [
   "#f44336",
@@ -22,36 +28,43 @@ const colors = [
 ];
 
 const CreatePrompt = ({}) => {
+  const router = useRouter();
+  const { displayName } = useContext(UserContext);
+
   const [color, setColor] = useState(
     colors[getRandomIntInBounds(0, colors.length)]
   );
+  const [prompt, setPrompt] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
-
-    console.log("form submitted");
+    createPrompt(prompt, color, displayName);
+    router.push("/");
   };
 
   return (
     <Layout requiresAuth showNavbar>
-      <h1 style={{ textAlign: "center" }}>Create a prompt</h1>
-      <br />
-      <form onSubmit={onSubmit}>
-        <PromptCard backgroundColor={color} editable />
+      <h1>Create a prompt</h1>
 
-        <br />
-        <br />
-
-        <label htmlFor="color-picker">Select color</label>
-        <br />
-        <br />
-        <CirclePicker
-          onChange={({ hex }) => setColor(hex)}
-          id="color-picker"
-          width="18.75rem"
-          triangle="hide"
-          colors={colors}
+      <form className={styles.promptForm} onSubmit={onSubmit}>
+        <PromptCard
+          backgroundColor={color}
+          editable
+          value={prompt}
+          updatePrompt={setPrompt}
         />
+        <label className={styles.colorPicker} htmlFor="color-picker">
+          Select color
+          <CirclePicker
+            onChange={({ hex }) => setColor(hex)}
+            id="color-picker"
+            width="18.75rem"
+            triangle="hide"
+            colors={colors}
+          />
+        </label>
+
+        <ActionButton Icon={BsArrowRight} text="Submit prompt" />
       </form>
     </Layout>
   );

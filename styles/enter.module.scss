@@ -31,28 +31,6 @@
     margin-bottom: 2rem;
   }
 
-  .actionButton {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 1.5rem;
-
-    span {
-      font-size: 1.5rem;
-    }
-
-    button {
-      padding: 1.5rem;
-      font-size: 2rem;
-      border-radius: 100%;
-      background-color: var(--color-4);
-      border: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  }
-
   .link {
     text-decoration: underline;
     width: max-content;

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
+import ActionButton from "../components/ActionButton";
 import styles from "../styles/enter.module.scss";
 
 const EnterForm = ({
@@ -59,12 +60,7 @@ const EnterForm = ({
             }
           />
         ))}
-        <div className={styles.actionButton}>
-          <span>{submitText}</span>
-          <button aria-label={submitText}>
-            <BsArrowRight />
-          </button>
-        </div>
+        <ActionButton text={submitText} Icon={BsArrowRight} />
       </form>
       <Link href={altLink}>
         <a className={styles.link}>{altLinkText}</a>

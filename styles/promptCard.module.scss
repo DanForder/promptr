@@ -1,12 +1,13 @@
 .wrapper {
   border-radius: 0.5rem;
   padding: 1.5rem;
+  margin-top: 1rem;
 
   .input {
     background: transparent;
     border: none;
     width: 100%;
-    min-height: 5rem;
+    min-height: 7.5rem;
     font-size: 2.5rem;
     resize: none;
     color: white;
@@ -24,5 +25,9 @@
     color: white;
     display: inline-block;
     text-align: center;
+
+    strong {
+      color: white;
+    }
   }
 }
