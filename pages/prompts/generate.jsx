@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { RiLightbulbLine } from "react-icons/ri";
+import ActionButton from "../../components/ActionButton";
 import Layout from "../../components/Layout";
 import PromptCard from "../../components/PromptCard";
 import { getRandomPrompt } from "../../lib/firebase";
@@ -26,6 +28,12 @@ const GeneratePrompt = ({}) => {
           dateSubmitted={prompt.dateSubmitted}
         />
       )}
+      <ActionButton
+        onClick={getPrompt}
+        Icon={RiLightbulbLine}
+        label="New prompt"
+        centered
+      />
     </Layout>
   );
 };

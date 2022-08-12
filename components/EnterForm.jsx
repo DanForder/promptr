@@ -60,7 +60,7 @@ const EnterForm = ({
             }
           />
         ))}
-        <ActionButton text={submitText} Icon={BsArrowRight} />
+        <ActionButton label={submitText} Icon={BsArrowRight} />
       </form>
       <Link href={altLink}>
         <a className={styles.link}>{altLinkText}</a>

@@ -5,6 +5,10 @@
   margin-top: 1.5rem;
   width: 100%;
 
+  &.centered {
+    justify-content: center;
+  }
+
   span {
     font-size: 1.5rem;
   }

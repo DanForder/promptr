@@ -38,6 +38,9 @@ const CreatePrompt = ({}) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+
+    if (!prompt || !color) return console.error("fill in fields");
+
     createPrompt(prompt, color, displayName);
     router.push("/");
   };
@@ -64,7 +67,7 @@ const CreatePrompt = ({}) => {
           />
         </label>
 
-        <ActionButton Icon={BsArrowRight} text="Submit prompt" />
+        <ActionButton Icon={BsArrowRight} label="Submit prompt" centered />
       </form>
     </Layout>
   );
