@@ -14,13 +14,13 @@ const AllPrompts = ({}) => {
   return (
     <Layout requiresAuth showNavbar>
       <h1>View all prompts</h1>
-      {prompts?.map(({ backgroundColor, text, timestamp, submittedBy }) => {
+      {prompts?.map(({ backgroundColor, text, dateSubmitted, submittedBy }) => {
         return (
           <PromptCard
-            key={timestamp}
+            key={dateSubmitted}
             backgroundColor={backgroundColor}
             value={text}
-            dateSubmitted={new Date(timestamp).toLocaleString()}
+            dateSubmitted={dateSubmitted}
             submittedBy={submittedBy}
           />
         );

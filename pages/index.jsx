@@ -8,6 +8,12 @@ export default function Home() {
 
       <br />
 
+      <Link href="/prompts/generate">
+        <a>Generate a prompt</a>
+      </Link>
+
+      <br />
+
       <Link href="/prompts/create">
         <a>Create a prompt</a>
       </Link>
