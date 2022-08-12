@@ -8,8 +8,9 @@ import { getRandomPrompt } from "../../lib/firebase";
 const GeneratePrompt = ({}) => {
   const [prompt, setPrompt] = useState(undefined);
 
-  const getPrompt = async () => {
-    const result = await getRandomPrompt();
+  // if we have a prompt on-screen, avoid it showing it again
+  const getPrompt = async (prompt) => {
+    const result = await getRandomPrompt(prompt?.id);
     setPrompt(result);
   };
 
@@ -29,7 +30,7 @@ const GeneratePrompt = ({}) => {
         />
       )}
       <ActionButton
-        onClick={getPrompt}
+        onClick={() => getPrompt(prompt)}
         Icon={RiLightbulbLine}
         label="New prompt"
         centered
