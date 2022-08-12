@@ -3,6 +3,7 @@ import { useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import ActionButton from "../components/ActionButton";
 import styles from "../styles/enter.module.scss";
+import TextField from "./TextField";
 
 const EnterForm = ({
   onSubmit,
@@ -43,17 +44,16 @@ const EnterForm = ({
       )}
       <form onSubmit={handleSubmit} className={styles.form}>
         {inputArray.map(({ name, type }) => (
-          <input
+          <TextField
             key={name}
-            className={styles.input}
             type={type}
-            aria-label={`Enter ${name}`}
+            ariaLabel={`Enter ${name}`}
             placeholder={name}
             value={form[name]}
             onChange={(e) =>
-              setForm((prevState) => {
+              setForm((prev) => {
                 return {
-                  ...prevState,
+                  ...prev,
                   [name]: e.target.value,
                 };
               })
