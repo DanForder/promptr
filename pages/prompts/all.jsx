@@ -1,4 +1,4 @@
-import { collectionGroup, query } from "firebase/firestore";
+import { collectionGroup, orderBy, query } from "firebase/firestore";
 import { useCollection } from "react-firebase-hooks/firestore";
 import Layout from "../../components/Layout";
 import PromptCard from "../../components/PromptCard";
@@ -6,7 +6,10 @@ import { firestore, promptToJSON } from "../../lib/firebase";
 
 const AllPrompts = ({}) => {
   const [querySnapshot] = useCollection(
-    query(collectionGroup(firestore, "prompts"))
+    query(
+      collectionGroup(firestore, "prompts"),
+      orderBy("dateSubmitted", "desc")
+    )
   );
 
   const prompts = querySnapshot?.docs.map(promptToJSON);

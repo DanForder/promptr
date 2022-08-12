@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&family=Roboto&family=Roboto+Slab&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&family=Open+Sans&display=swap");
 
 :root {
   --color-1: #e2ded3;
@@ -26,13 +26,12 @@ html {
   margin: 0;
   font-family: "Open Sans", sans-serif;
   color: var(--color-1);
-  /* font-family: "Roboto Slab", serif; */
-  /* font-family: "Roboto", sans-serif; */
 }
 
 h1 {
   font-family: "Indie Flower", sans-serif;
   text-align: center;
+  font-size: 2.5rem;
 }
 
 body {
@@ -42,10 +41,6 @@ body {
 input::placeholder {
   color: var(--color-1);
 }
-
-/* h1 {
-  font-family: "Indie Flower", sans-serif;
-} */
 
 a {
   color: inherit;
