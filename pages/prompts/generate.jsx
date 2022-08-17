@@ -1,6 +1,5 @@
-import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react";
-import { ImCheckmark, ImCross } from "react-icons/im";
+import { ImCross } from "react-icons/im";
 import ActionButton from "../../components/ActionButton";
 import Layout from "../../components/Layout";
 import PromptCard from "../../components/PromptCard";
@@ -8,8 +7,6 @@ import { getRandomPrompt } from "../../lib/firebase";
 import styles from "../../styles/promptGenerate.module.scss";
 
 const GeneratePrompt = ({}) => {
-  const router = useRouter();
-
   const cardRef = useRef();
 
   const [prompt, setPrompt] = useState(undefined);
@@ -25,23 +22,15 @@ const GeneratePrompt = ({}) => {
   }, []);
 
   const onSwipe = (direction) => {
-    console.log(`swiping card, direction: ${direction}`);
-    if (direction === "right") {
-      // TODO: use the prompt in firebase
-      return router.push(`/prompts/${prompt.id}`);
-    }
+    // only allow left and right swipes
+    if (["up", "down"].includes(direction)) return;
 
-    if (direction === "left") {
-      // wait 200 so prompt doesn't generate before card has left screen
-      setTimeout(() => {
-        getPrompt(prompt);
-      }, 200);
+    // wait 200 so prompt doesn't generate before card has left screen
+    setTimeout(() => {
+      getPrompt(prompt);
+    }, 200);
 
-      // TODO: dismiss prompt in firebase
-      return;
-    }
-
-    console.log(`unhandled direction: ${direction}`);
+    // TODO: dismiss prompt in firebase
   };
 
   return (
@@ -54,7 +43,7 @@ const GeneratePrompt = ({}) => {
               cardRef={(ref) => {
                 if (ref) cardRef = ref;
               }}
-              onCardLeftScreen={() => {
+              onCardLeftScreen={(direction) => {
                 cardRef.restoreCard();
               }}
               backgroundColor={prompt.backgroundColor}
@@ -72,14 +61,6 @@ const GeneratePrompt = ({}) => {
             }}
             Icon={ImCross}
             label="Dismiss prompt"
-            centered
-          />
-          <ActionButton
-            onClick={() => {
-              cardRef.swipe("right");
-            }}
-            Icon={ImCheckmark}
-            label="Use prompt"
             centered
           />
         </div>

@@ -12,9 +12,14 @@ const PromptCard = ({
   submittedBy,
   onSwipe,
   onCardLeftScreen,
+  onClick,
 }) => {
   const cardJsx = (
-    <div className={styles.wrapper} style={{ backgroundColor }}>
+    <div
+      className={styles.wrapper}
+      style={{ backgroundColor }}
+      onClick={onClick}
+    >
       <ReactTextareaAutosize
         className={styles.input}
         disabled={!editable}
@@ -38,7 +43,9 @@ const PromptCard = ({
       ref={cardRef}
       preventSwipe={["up", "down"]}
       onSwipe={onSwipe}
-      onCardLeftScreen={onCardLeftScreen}
+      onCardLeftScreen={(direction) => {
+        onCardLeftScreen(direction);
+      }}
     >
       {cardJsx}
     </TinderCard>
