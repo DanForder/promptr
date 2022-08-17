@@ -1,9 +1,19 @@
+.outerWrapper {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  background-color: #0c0e12;
+}
+
 .wrapper {
+  background-color: var(--color-3);
   padding: 0.5rem 1.5rem;
   min-height: 100%;
-  width: 100vw;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  max-width: 30rem;
+  overflow-y: auto;
 
   // TODO: test later
   // overflow-x: auto;
