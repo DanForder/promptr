@@ -32,14 +32,15 @@ const CreatePrompt = ({}) => {
   const { displayName } = useContext(UserContext);
 
   const [color, setColor] = useState(
-    colors[getRandomIntInBounds(0, colors.length)]
+    colors[getRandomIntInBounds(0, colors.length - 1)]
   );
   const [prompt, setPrompt] = useState("");
 
   const onSubmit = (e) => {
     e.preventDefault();
 
-    if (!prompt || !color) return console.error("fill in fields");
+    if (!prompt || !color)
+      return alert("Please type a prompt and select a colour");
 
     createPrompt(prompt, color, displayName);
     router.push("/");

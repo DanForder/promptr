@@ -4,7 +4,7 @@ import styles from "../styles/promptCard.module.scss";
 
 const PromptCard = ({
   cardRef,
-  backgroundColor,
+  backgroundColor = "#03a9f4",
   editable = false,
   dateSubmitted,
   value,
